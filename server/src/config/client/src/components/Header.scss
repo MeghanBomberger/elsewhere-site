@@ -1,0 +1,12 @@
+@import "../helpers/styles";
+
+.header {
+  @include center-h;
+  width: 100%;
+  
+  .hotbar {
+    width: 100%;
+    height: 5rem;
+    background-color: $hotbarBackground;
+  }
+}

@@ -1,0 +1,23 @@
+$background: #210B2C;
+$secondaryBackground: #55286F;
+
+$primaryText: #BC96E6;
+$secondaryText: #D8B4E2;
+$disabledText: #AE759F;
+
+$foodBar: #656D2C;
+$foodBarBorder: #353A17;
+$gearBackground: #23D59B;
+$gearBorder: #117E53;
+$hotbarBackground: #403327;
+$healthBar: #8A0000;
+$healthBarBorder: #4D0000;
+$itemBoxBackground: #FEE1C1;
+$itemBoxDetail: #D3BAA0;
+$itemBoxHighlight: #A0C2BE;
+
+:export {
+  colors: {
+    background: $background;
+  }
+}

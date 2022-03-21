@@ -1,0 +1,22 @@
+@mixin center-h {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin center-v {
+  @include center-h;
+  flex-direction: column;
+}
+
+@mixin fillscreen-bottomless {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+}
+
+@mixin fillscreen-main-min {
+  min-height: calc(100vh - 18rem);
+}
