@@ -1,8 +1,14 @@
-@import './helpers/styles/colors.scss';
+@import './helpers/styles';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 10px;
+  @include primary-font;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
 }

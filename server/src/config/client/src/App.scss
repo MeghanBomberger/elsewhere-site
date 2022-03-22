@@ -4,3 +4,13 @@
   @include fillscreen-bottomless;
   background-color: $background;
 }
+
+.page {
+  @include fillscreen-bottomless;
+  background: linear-gradient($backgroundFade75, $backgroundFade25), 
+              url('./assets/2022-03-07_23-40-08.png');
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  box-shadow: inset black 0 0 10rem;
+}

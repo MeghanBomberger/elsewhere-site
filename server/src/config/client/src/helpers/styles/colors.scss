@@ -1,20 +1,25 @@
 $background: #210B2C;
+$backgroundFade75: #210B2CC9;
+$backgroundFade25: #210B2C40;
 $secondaryBackground: #55286F;
 
 $primaryText: #BC96E6;
 $secondaryText: #D8B4E2;
 $disabledText: #AE759F;
 
+$shadow: #000000E6;
+
 $foodBar: #656D2C;
 $foodBarBorder: #353A17;
 $gearBackground: #23D59B;
 $gearBorder: #117E53;
 $hotbarBackground: #403327;
+$hotbarBorder: #37200d;
 $healthBar: #8A0000;
 $healthBarBorder: #4D0000;
 $itemBoxBackground: #FEE1C1;
 $itemBoxDetail: #D3BAA0;
-$itemBoxHighlight: #A0C2BE;
+$itemBoxHighlight: #06b1bd;
 
 :export {
   colors: {
