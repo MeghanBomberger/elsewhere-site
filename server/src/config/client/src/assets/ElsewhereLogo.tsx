@@ -3,7 +3,9 @@ import * as React from "react"
 export const ElsewhereLogo = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 500.956 500.956"
+    height={512}
+    viewBox="0 0 512 512"
+    width={512}
     style={{
       enableBackground: "new 0 0 500.956 500.956",
     }}

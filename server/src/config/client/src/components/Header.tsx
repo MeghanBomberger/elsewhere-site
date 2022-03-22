@@ -91,48 +91,57 @@ export const Header = () => {
   return (
     <header className="header">
 
+      <div className="gear-container">
+      </div>
+
       <nav className="hotbar">
 
         <ElsewhereLogo className="header-logo"/>
 
         <h1 className="logo-text">Elsewhere</h1>
 
-        {activityNavIcons.map(button => (
-          <Link 
-            className="hotbar-button"
-            to={button.path}
-            title={button.title}
-          >
-            {button.icon}
-            <p className="icon-tooltip">{button.title}</p>
-          </Link>
-        ))}
+        <div className="nav-group">
+          {activityNavIcons.map(button => (
+            <Link 
+              className="hotbar-button"
+              to={button.path}
+              title={button.title}
+            >
+              {button.icon}
+              <p className="icon-tooltip">{button.title}</p>
+            </Link>
+          ))}
+        </div>
 
         <div className="nav-spacer"/>
 
-        {infoNavIcons.map(button => (
-          <Link 
-            className="hotbar-button"
-            to={button.path}
-            title={button.title}
-          >
-            {button.icon}
-            <p className="icon-tooltip">{button.title}</p>
-          </Link>
-        ))}
+        <div className="nav-group">
+          {infoNavIcons.map(button => (
+            <Link 
+              className="hotbar-button"
+              to={button.path}
+              title={button.title}
+            >
+              {button.icon}
+              <p className="icon-tooltip">{button.title}</p>
+            </Link>
+          ))}
+        </div>
 
         <div className="nav-spacer"/>
-
-        {connectIcons.map(button => (
-          <Link 
-            className="hotbar-button"
-            to={button.path}
-            title={button.title}
-          >
-            {button.icon}
-            <p className="icon-tooltip">{button.title}</p>
-          </Link>
-        ))}
+        
+        <div className="nav-group">
+          {connectIcons.map(button => (
+            <Link 
+              className="hotbar-button"
+              to={button.path}
+              title={button.title}
+            >
+              {button.icon}
+              <p className="icon-tooltip">{button.title}</p>
+            </Link>
+          ))}
+        </div>
       </nav>
 
     </header>
