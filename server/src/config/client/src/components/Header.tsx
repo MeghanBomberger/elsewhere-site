@@ -7,6 +7,7 @@ import {
   ClaimsIcon,
   ContactIcon,
   DiscordIcon,
+  Gear,
   JoinIcon,
   ModsIcon,
   NewsIcon,
@@ -17,133 +18,137 @@ import {
   TwitchIcon,
 } from '../assets'
 
-const activityNavIcons = [
+interface IconList {
+  icon: JSX.Element;
+  path: string;
+  title: string;
+  interior: boolean;
+}
+
+const activityNavIcons: IconList[] = [
   {
     icon: <JoinIcon className="nav-icon"/>,
     path: "/join",
     title: "Join",
+    interior: true
   },
   {
     icon: <NewsIcon className="nav-icon"/>,
     path: "/news",
     title: "News",
+    interior: true
   },
 ]
 
-const infoNavIcons = [
+const infoNavIcons: IconList[] = [
   {
     icon: <CitiesIcon className="nav-icon"/>,
     path: "/cities",
     title: "Cities",
+    interior: true
   },
   {
     icon: <ShopsIcon className="nav-icon"/>,
     path: "/shops",
     title: "Shops",
+    interior: true
   },
   {
     icon: <RolesIcon className="nav-icon"/>,
     path: "/roles",
-    title: "Roles"
+    title: "Roles",
+    interior: true
   },
-  {
-    icon: <ClaimsIcon className="nav-icon"/>,
-    path: "/claims",
-    title: "Claims",
-  },
+  // {
+  //   icon: <ClaimsIcon className="nav-icon"/>,
+  //   path: "/claims",
+  //   title: "Claims",
+  //   interior: true
+  // },
   {
     icon: <ModsIcon className="nav-icon"/>,
     path: "/mods",
     title: "Mods",
+    interior: true
   },
   {
     icon: <RulesIcon className="nav-icon"/>,
     path: "/rules",
-    title: "Rules"
+    title: "Rules",
+    interior: true
   },
 ]
 
-const connectIcons = [
+const connectIcons: IconList[] = [
   {
     icon: <PatreonIcon className="nav-icon"/>,
     path: "/patreon",
-    title: "Patreon"
+    title: "Patreon",
+    interior: false
   },
   {
     icon: <DiscordIcon className="nav-icon"/>,
     path: "/discord",
-    title: "Discord"
+    title: "Discord",
+    interior: false
   },
   {
     icon: <TwitchIcon className="nav-icon"/>,
     path: "/twitch",
-    title: "Twitch"
+    title: "Twitch",
+    interior: false
   },
   {
     icon: <ContactIcon className="nav-icon"/>,
     path: "/contact",
-    title: "Contact Us"
+    title: "Contact Us",
+    interior: true
   },
 ]
 
 
 export const Header = () => {
+  const createNavSection = (iconList: IconList[]) => (
+    <div className="nav-section">
+      {iconList?.map(button => {
+        if (button.interior) {
+          return (
+            <Link
+              className="nav-button"
+              to={button.path}
+              title={button.title}
+            >
+              {button.icon}
+              <p className="title-tag">{button.title}</p>
+            </Link>
+          )
+        } else {
+          return (
+            <a
+              className="nav-button"
+              href={button.path}
+              title={button.title}
+            >
+              {button.icon}
+              <p className="title-tag">{button.title}</p>
+            </a>
+          )
+        }
+      })}
+    </div>
+    )
+
+
   return (
     <header className="header">
-
-      <div className="gear-container">
-      </div>
-
+      <Gear className="gear"/>
       <nav className="hotbar">
-
-        <ElsewhereLogo className="header-logo"/>
-
+        <ElsewhereLogo className="logo"/>
         <h1 className="logo-text">Elsewhere</h1>
-
-        <div className="nav-group">
-          {activityNavIcons.map(button => (
-            <Link 
-              className="hotbar-button"
-              to={button.path}
-              title={button.title}
-            >
-              {button.icon}
-              <p className="icon-tooltip">{button.title}</p>
-            </Link>
-          ))}
-        </div>
-
-        <div className="nav-spacer"/>
-
-        <div className="nav-group">
-          {infoNavIcons.map(button => (
-            <Link 
-              className="hotbar-button"
-              to={button.path}
-              title={button.title}
-            >
-              {button.icon}
-              <p className="icon-tooltip">{button.title}</p>
-            </Link>
-          ))}
-        </div>
-
-        <div className="nav-spacer"/>
-        
-        <div className="nav-group">
-          {connectIcons.map(button => (
-            <Link 
-              className="hotbar-button"
-              to={button.path}
-              title={button.title}
-            >
-              {button.icon}
-              <p className="icon-tooltip">{button.title}</p>
-            </Link>
-          ))}
-        </div>
+        {createNavSection(activityNavIcons)}
+        {createNavSection(infoNavIcons)}
+        {createNavSection(connectIcons)}
       </nav>
-
     </header>
   )
 }

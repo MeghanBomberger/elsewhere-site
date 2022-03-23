@@ -7,6 +7,9 @@
 
 .page {
   @include fillscreen-bottomless;
+  display: grid;
+  grid-template-columns: auto 5rem;
+  grid-template-rows: 20rem auto;
   background: linear-gradient($backgroundFade75, $backgroundFade25), 
               url('./assets/2022-03-07_23-40-08.png');
   background-size: cover, cover;
