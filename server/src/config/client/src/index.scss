@@ -8,6 +8,10 @@
   @include primary-font;
 }
 
+body {
+  background-color: $background;
+}
+
 a {
   outline: none;
   text-decoration: none;

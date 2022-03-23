@@ -4,13 +4,13 @@ $large-table-width: 1024px;
 $laptop-width: 1366px;
 $desktop-width: 1920px;
 
-@mixin phone-only {
-  @media (max-width: $phone-width) {
+@mixin small {
+  @media (max-width: $tablet-width) {
     @content;
   }
 }
 
-@mixin laptop-and-up {
+@mixin large {
   @media (min-width: $laptop-width) {
     @content;
   }

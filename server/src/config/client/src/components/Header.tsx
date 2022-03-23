@@ -82,19 +82,19 @@ const infoNavIcons: IconList[] = [
 const connectIcons: IconList[] = [
   {
     icon: <PatreonIcon className="nav-icon"/>,
-    path: "/patreon",
+    path: "https://www.patreon.com/elsewherevs",
     title: "Patreon",
     interior: false
   },
   {
     icon: <DiscordIcon className="nav-icon"/>,
-    path: "/discord",
+    path: "https://discord.gg/qAXKFmyR",
     title: "Discord",
     interior: false
   },
   {
     icon: <TwitchIcon className="nav-icon"/>,
-    path: "/twitch",
+    path: "https://www.twitch.tv/elsewherevs",
     title: "Twitch",
     interior: false
   },
@@ -128,6 +128,8 @@ export const Header = () => {
               className="nav-button"
               href={button.path}
               title={button.title}
+              target="_blank"
+              rel='noreferrer'
             >
               {button.icon}
               <p className="title-tag">{button.title}</p>
