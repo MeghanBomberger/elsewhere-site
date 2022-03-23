@@ -1,5 +1,8 @@
 @import '../helpers/styles/';
 
 .landing {
-  
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+  box-shadow: inset $shadow 0 0 2rem,
+    $shadow 0 0 1rem;
 }

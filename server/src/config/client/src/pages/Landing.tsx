@@ -4,9 +4,9 @@ import { Header } from '../components'
 
 export const Landing = () => {
   return (
-    <div className="page landing">
+    <div className="page">
       <Header/>
-      <main className="main">
+      <main className="main landing">
         
       </main>
     </div>
