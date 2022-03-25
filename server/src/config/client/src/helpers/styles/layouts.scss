@@ -20,3 +20,12 @@
 @mixin fillscreen-main-min {
   min-height: calc(100vh - 18rem);
 }
+
+@mixin scroll-bar {
+  &::-webkit-scrollbar {
+    width: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-top-right-radius: 50rem;
+    border-top-left-radius: 50rem;
+  }
+}

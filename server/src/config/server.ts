@@ -5,6 +5,8 @@ import express from 'express'
 import path from 'path'
 import serveStatic from 'serve-static'
 
+import rolesRouter from './routes/RolesRouter'
+
 const app = express()
 
 const options: cors.CorsOptions = {
@@ -17,7 +19,7 @@ const options: cors.CorsOptions = {
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-  origin: process.env.HEROKU_URL || 'http://localhost:3000',
+  origin: process.env.LIVE_URL || process.env.HEROKU_URL || 'http://localhost:3000',
   preflightContinue: false
 }
 
@@ -25,9 +27,15 @@ app.use(express.json())
 app.use(cors(options))
 app.use(serveStatic(__dirname + '/client/build'))
 
+app.get("/", (req, res) => {
+  res.send({message: "Hi"})
+})
+
 app.get("/api/hello", (req, res) => {
   res.send({ message: "Hello World!" })
 })
+
+app.use('/api/roles', rolesRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')))
