@@ -4,7 +4,6 @@ import './Header.scss'
 import { ElsewhereLogo } from '../assets'
 import { 
   CitiesIcon,
-  ClaimsIcon,
   ContactIcon,
   DiscordIcon,
   Gear,
@@ -59,12 +58,6 @@ const infoNavIcons: IconList[] = [
     title: "Roles",
     interior: true
   },
-  // {
-  //   icon: <ClaimsIcon className="nav-icon"/>,
-  //   path: "/claims",
-  //   title: "Claims",
-  //   interior: true
-  // },
   {
     icon: <ModsIcon className="nav-icon"/>,
     path: "/mods",
@@ -114,6 +107,7 @@ export const Header = () => {
         if (button.interior) {
           return (
             <Link
+              key={`nav-button-${button.title}`}
               className="nav-button"
               to={button.path}
               title={button.title}
@@ -125,6 +119,7 @@ export const Header = () => {
         } else {
           return (
             <a
+              key={`nav-button-${button.title}`}
               className="nav-button"
               href={button.path}
               title={button.title}
