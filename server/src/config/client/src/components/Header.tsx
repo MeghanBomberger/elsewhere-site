@@ -142,15 +142,21 @@ export const Header = () => {
 
 
   return (
-    <header className="header">
-      <Gear className="gear"/>
-      <nav className="hotbar">
+    <>
+      <div className="mobile-logo">
         <ElsewhereLogo className="logo"/>
         <h1 className="logo-text">Elsewhere</h1>
-        {createNavSection(activityNavIcons)}
-        {createNavSection(infoNavIcons)}
-        {createNavSection(connectIcons)}
-      </nav>
-    </header>
+      </div>
+      <header className="header">
+        <Gear className="gear"/>
+        <nav className="hotbar">
+          <ElsewhereLogo className="logo"/>
+          <h1 className="logo-text">Elsewhere</h1>
+          {createNavSection(activityNavIcons)}
+          {createNavSection(infoNavIcons)}
+          {createNavSection(connectIcons)}
+        </nav>
+      </header>
+    </>
   )
 }

@@ -1,5 +1,35 @@
 @import "../helpers/styles/";
 
+.logo-text {
+  @include accent-font;
+  color: $gearBackground;
+  text-shadow: $shadow -0.3rem 0.3rem 0.2rem;
+  font-size: 2.5rem;
+}
+
+.mobile-logo {
+  display: none;
+  @include small {
+    @include center-h;
+    display: inline;
+    grid-column: 1;
+    grid-row: 1;;
+    z-index: 5;
+
+    .logo {
+      margin: 0.6rem 0 0 0.8rem;
+      height: 5rem;
+      width: 5rem;
+    }
+
+    .logo-text {
+      position: absolute;
+      top: -1rem;
+      left: 3.5rem;
+    }
+  }
+}
+
 .header {
   grid-column: 1/3;
   grid-row: 1;
@@ -48,7 +78,8 @@
     @include small {
       @include center-v;
       justify-content: space-between;
-      padding-top: 5rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     .logo {
@@ -58,15 +89,11 @@
       height: 10rem;
       width: 10rem;
       @include small {
-        top: -5rem;
+        display: none;
       }
     }
 
     .logo-text {
-      @include accent-font;
-      color: $gearBackground;
-      text-shadow: $shadow -0.3rem 0.3rem 0.2rem;
-      font-size: 2.5rem;
       z-index: 2;
       @include small {
         display: none;
