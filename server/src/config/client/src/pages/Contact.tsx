@@ -7,7 +7,8 @@ export const Contact = () => {
     <div className="page contact">
       <Header/>
       <main className="main">
-        CONTACT
+        <h2>Contact Us</h2>
+        <p>Coming Soon</p>
       </main>
     </div>
   )

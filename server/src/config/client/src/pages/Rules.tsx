@@ -7,7 +7,8 @@ export const Rules = () => {
     <div className="page rules">
       <Header/>
       <main className="main">
-        RULES
+        <h2>Community Rules</h2>
+        <p>Coming Soon</p>
       </main>
     </div>
   )

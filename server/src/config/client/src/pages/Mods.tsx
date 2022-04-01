@@ -7,7 +7,8 @@ export const Mods = () => {
     <div className="page mods">
       <Header/>
       <main className="main">
-        MODS
+        <h2>Mods</h2>
+        <p>Coming Soon</p>
       </main>
     </div>
   )

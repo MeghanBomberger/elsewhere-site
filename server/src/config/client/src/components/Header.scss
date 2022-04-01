@@ -124,6 +124,9 @@
             filter: opacity(100%);
           }
         }
+        @include small {
+          margin: 0.25rem;
+        }
 
         .nav-icon {
           height: 2.9rem;
@@ -150,8 +153,11 @@
             right: calc($nav-button-size - 0.2rem);
             height: $nav-button-size;
             width: auto;
+            min-width: 5rem;
             border-bottom-right-radius: 0;
             border-top-left-radius: 1rem;
+            font-weight: 900;
+            font-size: 1rem;
           }
         }
       }

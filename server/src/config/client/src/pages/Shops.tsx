@@ -7,7 +7,8 @@ export const Shops = () => {
     <div className="page shops">
       <Header/>
       <main className="main">
-        SHOPS
+        <h2>Shops</h2>
+        <p>Coming Soon</p>
       </main>
     </div>
   )

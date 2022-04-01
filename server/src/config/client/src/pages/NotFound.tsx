@@ -1,14 +1,14 @@
 import React from 'react'
 import { Header } from '../components'
-import './News.scss'
+import './NotFound.scss'
 
-export const News = () => {
+export const NotFound = () => {
   return (
-    <div className="page news">
+    <div className="page not-found">
       <Header/>
       <main className="main">
-        <h2>News</h2>
-        <p>Coming Soon</p>
+        <h2>404</h2>
+        <h3>Page Not Found</h3>
       </main>
     </div>
   )

@@ -7,7 +7,8 @@ export const Cities = () => {
     <div className="page cities">
       <Header/>
       <main className="main">
-        CITIES
+        <h2>Cities</h2>
+        <p>Coming Soon</p>
       </main>
     </div>
   )

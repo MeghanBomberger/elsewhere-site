@@ -7,7 +7,7 @@ export const Landing = () => {
     <div className="page">
       <Header/>
       <main className="main landing">
-        
+        This site is currently under construction!
       </main>
     </div>
   )

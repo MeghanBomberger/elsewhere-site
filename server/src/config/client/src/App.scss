@@ -36,7 +36,10 @@
       $shadow 0 0 1rem;
 
     @include small {
-      margin-right: 4rem;
+      margin-top: 1rem;
+      margin-right: 7rem;
+      width: calc(90% - 3rem);
+      max-height: calc(100vh - 10rem);
     }
   }
 }

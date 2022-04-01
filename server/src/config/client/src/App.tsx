@@ -12,6 +12,7 @@ import {
   Landing,
   Mods,
   News,
+  NotFound,
   Roles,
   Rules,
   Shops,
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
+        <Route path="*" element={<NotFound/>}/>
         <Route path="/" element={<Landing/>}/>
         <Route path="/join" element={<Join/>}/>
         <Route path="/news" element={<News/>}/>

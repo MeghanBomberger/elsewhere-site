@@ -42,6 +42,13 @@
   dependencies:
     "defer-to-connect" "^1.0.1"
 
+"@types/airtable@^0.10.1":
+  "integrity" "sha512-ZwMU+ZztgmN1k12ist39+lDQAkeeaPLO5pgXdRodJecVTMo+zKHNn83dQcLY3eaD3BbUfEZ/6uJsqBTcM+UKuQ=="
+  "resolved" "https://registry.npmjs.org/@types/airtable/-/airtable-0.10.1.tgz"
+  "version" "0.10.1"
+  dependencies:
+    "airtable" "*"
+
 "@types/body-parser@*":
   "integrity" "sha512-W98JrE0j2K78swW4ukqMleo8R7h/pFETjM2DQ90MF6XK2i4LO4W3gQ71Lt4w3bfm2EvVSyWHplECvB5sK22yFQ=="
   "resolved" "https://registry.npmjs.org/@types/body-parser/-/body-parser-1.19.0.tgz"
@@ -141,10 +148,10 @@
     "mime-types" "~2.1.24"
     "negotiator" "0.6.2"
 
-"airtable@^0.11.2":
-  "integrity" "sha512-2kYULLdnqa7ZpaWXXfLTNKMzU+BTUBOZ6TPGahpH3KfJB9Sl18ih0v0zV1PIvpDxTWq+u76jGMAya9NDVZJT/Q=="
-  "resolved" "https://registry.npmjs.org/airtable/-/airtable-0.11.2.tgz"
-  "version" "0.11.2"
+"airtable@*", "airtable@^0.11.3":
+  "integrity" "sha512-fPT0SdipmJU1eQNe+sJshvnb87HcZ2rPS7gJuryDAF9xDbfbxB8AmYQSuC1f0PIbLyPPpSWBuEewf4UJ9i3rJw=="
+  "resolved" "https://registry.npmjs.org/airtable/-/airtable-0.11.3.tgz"
+  "version" "0.11.3"
   dependencies:
     "@types/node" ">=8.0.0 <15"
     "abort-controller" "^3.0.0"
@@ -633,11 +640,6 @@
   "integrity" "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
-
-"fsevents@~2.3.1":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="

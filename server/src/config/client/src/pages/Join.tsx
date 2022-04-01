@@ -7,7 +7,8 @@ export const Join = () => {
     <div className="page join">
       <Header/>
       <main className="main">
-        JOIN
+        <h2>How to Join the Server</h2>
+        <p>Coming Soon</p>
       </main>
     </div>
   )
