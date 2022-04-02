@@ -81,7 +81,7 @@ const connectIcons: IconList[] = [
   },
   {
     icon: <DiscordIcon className="nav-icon"/>,
-    path: "https://discord.gg/qAXKFmyR",
+    path: "https://discord.gg/ePtWKHvuWY",
     title: "Discord",
     interior: false
   },

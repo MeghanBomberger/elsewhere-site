@@ -1,0 +1,47 @@
+@import '../helpers/styles/index.scss';
+
+.join {
+  .main {
+    overflow-x: auto;
+    @include scroll-bar;
+
+    p {
+      width: 80%;
+      margin-bottom: 6rem;
+      text-align: center;
+
+      @include small {
+        text-align: justify;
+      }
+
+      b {
+        font-size: 1.6rem;
+      }
+    }
+
+    .step-link {
+      width: 50vw;
+      max-width: 50rem;
+      margin: 2rem 0;
+
+      .step-img {
+        width: 100%;
+      }
+
+      &:hover {
+        filter: drop-shadow($itemBoxHighlight 0 0 2rem);
+      }
+    }
+
+    .discord-link {
+      width: 20vw;
+      max-width: 30rem;
+    }
+  }
+
+  .setup-img {
+    width: 50vw;
+    max-width: 40rem;
+    margin: 2rem 0;
+  }
+}
