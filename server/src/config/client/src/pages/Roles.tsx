@@ -43,7 +43,6 @@ export const Roles = () => {
   const fetchRolesData = async () => {
     await axios.get(`${baseURL}/api/roles`)
       .then((res) => {
-        console.log(res)
         if (res.data?.length > 0) {
           const roles = res.data
           const patreonRoleData = roles.filter((role: RoleAPIResponse) => role.venue === 'Patreon')

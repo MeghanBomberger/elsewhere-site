@@ -3,7 +3,7 @@
 .mods {
   .main {
     height: auto;
-    overflow: auto;
+    overflow-x: auto;
     @include scroll-bar;
 
     .mod-card {
@@ -33,9 +33,10 @@
       .tags-container {
         @include center-h;
         justify-content: start;
+        flex-wrap: wrap;
 
         .tag-pill {
-          margin-left: 1rem;
+          margin: 0.5rem;
           padding: 0.5rem 1rem;
           border-radius: 5rem;
           background-color: $itemBoxHighlight40;

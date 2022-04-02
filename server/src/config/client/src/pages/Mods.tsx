@@ -12,8 +12,8 @@ export const Mods = () => {
   const fetchModsData = async () => {
     await axios.get(`${baseURL}/api/mods`)
     .then(res => {
-      if (res.data.mods) {
-        const { mods } = res.data
+      if (res.data) {
+        const mods = res.data
         setMods(mods)
       }
     })

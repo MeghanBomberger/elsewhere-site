@@ -45,7 +45,6 @@ export const Shops = () => {
   const fetchShopsData = async () => {
     await axios.get(`${baseURL}/api/shops`)
       .then(res => {
-        console.log(res.data)
         if (res.data) {
           const shops = res.data
           const openShopsData = shops.filter((shop: ShopAPIResponse) => shop.status === 'Open')
