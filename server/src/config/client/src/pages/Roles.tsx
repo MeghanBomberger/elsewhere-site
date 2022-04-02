@@ -1,20 +1,19 @@
 import React, { 
-  useCallback,
   useEffect,
   useState, 
 } from 'react'
 import axios from 'axios'
 
-import { RolesAPIResponse } from '../../../types/api-types'
+import { RoleAPIResponse } from '../../../types/api-types'
 import './Roles.scss'
 import { Header } from '../components'
 import { baseURL } from '../helpers/axios-helpers'
 
 export const Roles = () => {
-  const [patreonRoles, setPatreonRoles] = useState<RolesAPIResponse[]>([])
-  const [discordRoles, setDiscordRoles] = useState<RolesAPIResponse[]>([])
+  const [patreonRoles, setPatreonRoles] = useState<RoleAPIResponse[]>([])
+  const [discordRoles, setDiscordRoles] = useState<RoleAPIResponse[]>([])
 
-  const createRoleCard = (rolesList: RolesAPIResponse[]) => {
+  const createRoleCard = (rolesList: RoleAPIResponse[]) => {
     return rolesList.map(role => (
       <article
         key={role.id}
@@ -43,11 +42,12 @@ export const Roles = () => {
   
   const fetchRolesData = async () => {
     await axios.get(`${baseURL}/api/roles`)
-      .then(res => {
-        if (res.data.roles) {
-          const { roles } = res.data
-          const patreonRoleData = roles.filter((role: RolesAPIResponse) => role.venue === 'Patreon')
-          const discordRolesData = roles.filter((role: RolesAPIResponse) => role.venue === 'Discord')
+      .then((res) => {
+        console.log(res)
+        if (res.data?.length > 0) {
+          const roles = res.data
+          const patreonRoleData = roles.filter((role: RoleAPIResponse) => role.venue === 'Patreon')
+          const discordRolesData = roles.filter((role: RoleAPIResponse) => role.venue === 'Discord')
           setPatreonRoles(patreonRoleData)
           setDiscordRoles(discordRolesData)
         }

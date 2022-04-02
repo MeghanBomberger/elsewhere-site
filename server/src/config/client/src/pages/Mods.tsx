@@ -34,18 +34,18 @@ export const Mods = () => {
             className="mod-card"
           >
             <a 
-              title={mod.fields.mod_name}
-              href={mod.fields.mod_db_url}
+              title={mod.modName}
+              href={mod.modDBURL}
               target="_blank"
               rel='noreferrer'
             >
-              <h3>{mod.fields.mod_name}🔗</h3>
-              <p className='version-pill'>v {mod.fields.version_number_in_use}</p>
-              <p className="mod-desc">{mod.fields.description}</p>
+              <h3>{mod.modName}🔗</h3>
+              <p className='version-pill'>v {mod.versionNumberInUse}</p>
+              <p className="mod-desc">{mod.description}</p>
             </a>
             <div className="tags-container">
               <h4>Mod Type:</h4>
-              {mod.fields.mod_db_tags?.map((tag: string) => (
+              {mod.modDBTags?.map((tag: string) => (
                 <p className="tag-pill">{tag}</p>
               ))}
             </div>
