@@ -5,34 +5,15 @@ import Airtable, {
   Records
 } from 'airtable'
 import axios from 'axios'
+import {
+  ModsAPIResponse,
+  ModDBData
+} from '../types/api-types'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const modsRouter = express.Router()
 
-interface ModDBData {
-  modDBID: string,
-  name: string,
-  lastUpdated: string,
-  currentVersion: string,
-  tags: string[],
-  assetid: string
-}
 
-interface ModAirtableFields {
-  id: string;
-  fields: {
-    mod_name?: string;
-    version_number_in_use?: string;
-    mod_db_id?: string;
-    mod_db_version_number?: string;
-    mod_db_tags?: string[];
-    description?: string;
-    images?: any[]; //update to correct type
-    mod_db_url?: string;
-    mod_db_version_release_date?: string;
-    status?: string;
-  }
-}
 
 modsRouter.get("/syncvsmoddb", async (req, res, next) => {
   await base('mods').select({
@@ -41,9 +22,9 @@ modsRouter.get("/syncvsmoddb", async (req, res, next) => {
     //@ts-ignore
     const mods = await records.map(record => ({ id: record.id, fields: {...record.fields} }))
 
-    await mods.forEach(async (mod: ModAirtableFields, index) => {
+    await mods.forEach(async (mod: ModsAPIResponse, index) => {
       let shouldUpdate = false
-      let newModData: ModAirtableFields = {id: mod.id, fields: {}}
+      let newModData: ModsAPIResponse = {id: mod.id, fields: {}}
       const modDBData: ModDBData = await axios.get(`http://mods.vintagestory.at/api/mod/${mod.fields.mod_db_id}`)
       .then(res => {
         const modData = res.data.mod

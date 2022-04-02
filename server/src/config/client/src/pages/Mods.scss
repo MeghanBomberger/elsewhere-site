@@ -1,0 +1,48 @@
+@import '../helpers/styles/index.scss';
+
+.mods {
+  .main {
+    height: auto;
+    overflow: auto;
+    @include scroll-bar;
+
+    .mod-card {
+      width: 90%;
+      margin-bottom: 6rem;
+
+      a > h3 {
+        font-size: 2rem;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .version-pill {
+        display: inline-block;
+        background-color: $secondaryBackground;
+        margin: 0.5rem 0 0.75rem 0;
+        padding: 0.25rem 1rem;
+        border-radius: 5rem;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      .mod-desc {
+        margin: 1rem 0;
+      }
+
+      .tags-container {
+        @include center-h;
+        justify-content: start;
+
+        .tag-pill {
+          margin-left: 1rem;
+          padding: 0.5rem 1rem;
+          border-radius: 5rem;
+          background-color: $itemBoxHighlight40;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

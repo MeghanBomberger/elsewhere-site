@@ -46,7 +46,6 @@ export const Roles = () => {
       .then(res => {
         if (res.data.roles) {
           const { roles } = res.data
-          console.log(roles)
           const patreonRoleData = roles.filter((role: RolesAPIResponse) => role.venue === 'Patreon')
           const discordRolesData = roles.filter((role: RolesAPIResponse) => role.venue === 'Discord')
           setPatreonRoles(patreonRoleData)
