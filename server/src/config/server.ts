@@ -5,6 +5,7 @@ import express from 'express'
 import path from 'path'
 import serveStatic from 'serve-static'
 
+import modsRouter from './routes/ModsRouter'
 import rolesRouter from './routes/RolesRouter'
 
 const app = express()
@@ -36,6 +37,7 @@ app.get("/api/hello", (req, res) => {
 })
 
 app.use('/api/roles', rolesRouter)
+app.use('/api/mods', modsRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')))
