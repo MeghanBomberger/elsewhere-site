@@ -127,4 +127,25 @@ modsRouter.get("/syncvsmoddb", async (req, res, next) => {
   })
 })
 
+modsRouter.get("/", async (req, res, next) => {
+  await base('mods').select({
+    view: "Grid view"
+  }).eachPage(async function page(records, fetchNextPage) {
+    const mods = await records.map(record => ({ id: record.id, fields: {...record.fields} }))
+    res.send({
+      success: true,
+      mods: mods
+    })
+  }).catch((err) => {
+    if (err) {
+      console.error(err)
+    }
+    res.send({
+      success: false
+    })
+  }).finally(() => {
+    next()
+  })
+})
+
 export default modsRouter
