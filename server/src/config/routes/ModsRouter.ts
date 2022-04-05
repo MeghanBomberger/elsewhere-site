@@ -1,15 +1,13 @@
 require('dotenv').config()
 
 import express from 'express'
-import Airtable, {
-  Records
-} from 'airtable'
+import Airtable from 'airtable'
 import axios from 'axios'
 import {
   ModDBData,
   ModsAirtableResponse,
   ModsAPIResponse,
-} from '../types/api-types'
+} from '../types'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const modsRouter = express.Router()

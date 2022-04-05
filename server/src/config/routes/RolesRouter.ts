@@ -6,7 +6,7 @@ import Airtable from 'airtable'
 import {
   RoleAPIResponse,
   RoleAirtableResponse,
-} from '../types/api-types'
+} from '../types'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const rolesRouter = express.Router()

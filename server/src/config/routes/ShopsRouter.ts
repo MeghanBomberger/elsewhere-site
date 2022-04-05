@@ -2,7 +2,7 @@ require('dotenv').config()
 
 import express from 'express'
 import Airtable from 'airtable'
-import { ShopsAirtableResponse, ShopAPIResponse } from '../types/api-types'
+import { ShopsAirtableResponse, ShopAPIResponse } from '../types'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const shopsRouter = express.Router()

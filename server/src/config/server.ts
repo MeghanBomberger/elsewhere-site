@@ -5,6 +5,7 @@ import express from 'express'
 import path from 'path'
 import serveStatic from 'serve-static'
 
+import citiesRouter from './routes/CitiesRouter'
 import modsRouter from './routes/ModsRouter'
 import rolesRouter from './routes/RolesRouter'
 import shopsRouter from './routes/ShopsRouter'
@@ -40,6 +41,7 @@ app.get("/api/hello", (req, res) => {
 app.use('/api/roles', rolesRouter)
 app.use('/api/mods', modsRouter)
 app.use('/api/shops', shopsRouter)
+app.use('/api/cities', citiesRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')))
