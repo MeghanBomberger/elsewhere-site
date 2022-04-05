@@ -6,14 +6,13 @@ import Airtable, {
 } from 'airtable'
 import axios from 'axios'
 import {
+  ModDBData,
+  ModsAirtableResponse,
   ModsAPIResponse,
-  ModDBData
 } from '../types/api-types'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const modsRouter = express.Router()
-
-
 
 modsRouter.get("/syncvsmoddb", async (req, res, next) => {
   await base('mods').select({
@@ -22,9 +21,12 @@ modsRouter.get("/syncvsmoddb", async (req, res, next) => {
     //@ts-ignore
     const mods = await records.map(record => ({ id: record.id, fields: {...record.fields} }))
 
-    await mods.forEach(async (mod: ModsAPIResponse, index) => {
+    await mods.forEach(async (mod: ModsAirtableResponse, index) => {
       let shouldUpdate = false
-      let newModData: ModsAPIResponse = {id: mod.id, fields: {}}
+      let newModData: any = {
+        id: mod.id,
+        fields: {}
+      }
       const modDBData: ModDBData = await axios.get(`http://mods.vintagestory.at/api/mod/${mod.fields.mod_db_id}`)
       .then(res => {
         const modData = res.data.mod
@@ -112,11 +114,32 @@ modsRouter.get("/", async (req, res, next) => {
   await base('mods').select({
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
-    const mods = await records.map(record => ({ id: record.id, fields: {...record.fields} }))
-    res.send({
-      success: true,
-      mods: mods
+    const mods: ModsAPIResponse[] = await records.map((record: ModsAirtableResponse) => {
+      const {
+        description,
+        mod_db_id,
+        mod_db_version_number,
+        mod_db_tags,
+        mod_db_url,
+        mod_db_version_release_date,
+        mod_name,
+        status,
+        version_number_in_use,
+      } = record.fields
+      return { 
+        id: record.id, 
+        description,
+        modDBID: mod_db_id,
+        modDBTags: mod_db_tags,
+        modDBVersionNumber: mod_db_version_number,
+        modDBVersionReleaseDate: mod_db_version_release_date,
+        modDBURL: mod_db_url,
+        modName: mod_name,
+        status,
+        versionNumberInUse: version_number_in_use
+      }
     })
+    res.send(mods)
   }).catch((err) => {
     if (err) {
       console.error(err)

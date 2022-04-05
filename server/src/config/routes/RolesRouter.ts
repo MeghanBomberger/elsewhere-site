@@ -1,9 +1,12 @@
 require('dotenv').config()
 
 import express from 'express'
-import Airtable, {
-  Records
-} from 'airtable'
+import Airtable from 'airtable'
+
+import {
+  RoleAPIResponse,
+  RoleAirtableResponse,
+} from '../types/api-types'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const rolesRouter = express.Router()
@@ -14,9 +17,8 @@ rolesRouter.get("/", async (req, res, next) => {
       view: "Grid view"
     }).eachPage(async function page(records, fetchNextPage) {
       //@ts-ignore
-      const roles = await records.map(record => {
+      const roles = await records.map((record: RoleAirtableResponse) => {
         const {
-          role_id,
           image,
           available,
           price,
@@ -26,8 +28,8 @@ rolesRouter.get("/", async (req, res, next) => {
         } = record.fields
 
         const imageData = image as any[]
-        const roleData = {
-          id: role_id,
+        const roleData: RoleAPIResponse = {
+          id: record.id,
           image: imageData[0].thumbnails.full.url,
           available,
           price,
@@ -38,7 +40,7 @@ rolesRouter.get("/", async (req, res, next) => {
 
         return roleData
       })
-      res.send({roles: roles})
+      res.send(roles)
     })
   } catch (err) {
     if (err) {
