@@ -7,51 +7,52 @@ import {
   RoleAPIResponse,
   RoleAirtableResponse,
 } from '../types'
+import {
+  getImageUrls
+} from '../helpers'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const rolesRouter = express.Router()
 
 rolesRouter.get("/", async (req, res, next) => {
-  try {
-    await base('roles').select({
-      view: "Grid view"
-    }).eachPage(async function page(records, fetchNextPage) {
-      //@ts-ignore
-      const roles = await records.map((record: RoleAirtableResponse) => {
-        const {
-          image,
-          available,
-          price,
-          title,
-          perks,
-          venue
-        } = record.fields
+  await base('roles').select({
+    view: "Grid view"
+  }).eachPage(async function page(records, fetchNextPage) {
+    //@ts-ignore
+    const roles = await records.map((record: RoleAirtableResponse) => {
+      const {
+        image,
+        available,
+        price,
+        title,
+        perks,
+        venue
+      } = record.fields
 
-        const imageData = image as any[]
-        const roleData: RoleAPIResponse = {
-          id: record.id,
-          image: imageData[0].thumbnails.full.url,
-          available,
-          price,
-          perks,
-          title,
-          venue
-        }
+      const imageData: string[] = getImageUrls(image)
+      const roleData: RoleAPIResponse = {
+        id: record.id,
+        image: imageData[0],
+        available,
+        price,
+        perks,
+        title,
+        venue
+      }
 
-        return roleData
-      })
-      res.send(roles)
+      return roleData
     })
-  } catch (err) {
+    res.send(roles)
+  }).catch((err) => {
     if (err) {
       console.error(err)
     }
     res.send({
       success: false
     })
-  } finally {
+  }).finally(() => {
     next()
-  }
+  })
 })
 
 export default rolesRouter

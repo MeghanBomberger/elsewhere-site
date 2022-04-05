@@ -6,9 +6,11 @@ import Airtable from 'airtable'
 import {
   CitiesAirtableResponse,
   CitiesAPIResponse,
-  CityShop,
-  CityShops
+  CityShop
 } from '../types'
+import {
+  getImageUrls
+} from '../helpers'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const citiesRouter = express.Router()
@@ -32,7 +34,7 @@ citiesRouter.get("/", async (req, res, next) => {
         shop_statuses,
       } = record.fields
 
-      const imageData: string[] = screenshots.map(image => image.thumbnails.full.url)
+      const imageData: string[] = getImageUrls(screenshots)
 
       const shopsData: CityShop[] = open_shop_names.map((shop: string, index: number) => {
         return {

@@ -3,6 +3,9 @@ require('dotenv').config()
 import express from 'express'
 import Airtable from 'airtable'
 import { ShopsAirtableResponse, ShopAPIResponse } from '../types'
+import {
+  getImageUrls
+} from '../helpers'
 
 const base = new Airtable({apiKey: process.env?.AIRTABLE_API_KEY || ''}).base(process.env?.AIRTABLE_BASE || '')
 const shopsRouter = express.Router()
@@ -24,7 +27,7 @@ shopsRouter.get('/', async (req, res, next) => {
         status,
       } = record.fields
       
-      const imageData: string[] = images.map(image => image.thumbnails.full.url)
+      const imageData: string[] = getImageUrls(images)
 
       return {
         id: record.id,

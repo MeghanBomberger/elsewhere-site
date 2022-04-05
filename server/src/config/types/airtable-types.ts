@@ -4,7 +4,7 @@ interface AirtableThumbnail {
   height: number;
 }
 
-interface AirtableImage extends AirtableThumbnail {
+export interface AirtableImage extends AirtableThumbnail {
   filename: string;
   id: string;
   size: number;
