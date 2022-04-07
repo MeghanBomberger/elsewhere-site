@@ -32,5 +32,9 @@
     "start": "ts-node server/src/config/server.ts",
     "start:client": "cd server/src/config/client && npm start",
     "update:client": "cd server/src/config/client && npm i"
+  },
+  "engines" : { 
+    "npm" : "8.3.1",
+    "node" : "16.14.0"
   }
 }
