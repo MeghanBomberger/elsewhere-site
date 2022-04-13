@@ -47,6 +47,17 @@ export interface ModsAirtableResponse {
   }
 }
 
+export interface NewsAirtableResponse {
+  id: string;
+  fields: {
+    title: string;
+    contents: string;
+    category: string;
+    images: AirtableImage[];
+    publish_date: string;
+  }
+}
+
 export interface RoleAirtableResponse {
   id: string;
   fields: {
@@ -73,3 +84,4 @@ export interface ShopsAirtableResponse {
     status: string;
   }
 }
+
