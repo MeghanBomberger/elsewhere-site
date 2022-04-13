@@ -50,7 +50,7 @@ citiesRouter.get("/", async (req, res, next) => {
         name: city_name,
         description,
         images: imageData,
-        cityCoords: `${teleport_x_coords}, ${teleport_y_coords}, ${teleport_z_coords}`,
+        coords: `${teleport_x_coords}, ${teleport_y_coords}, ${teleport_z_coords}`,
         zoneType: zone_type,
         shops: {
           availableShopSpaces: availableShops,
@@ -58,6 +58,7 @@ citiesRouter.get("/", async (req, res, next) => {
         },
       }
     })
+    res.send(cities)
   }).catch((err) => {
     if (err) {
       console.error(err)
