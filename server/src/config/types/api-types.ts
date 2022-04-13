@@ -31,6 +31,14 @@ export interface ModsAPIResponse {
   versionNumberInUse?: string;
 }
 
+export interface NewsAPIResponse {
+  id: string;
+  contents: string;
+  category: string;
+  images: string[];
+  publish_date: string;
+}
+
 export interface RoleAPIResponse {
   available: boolean;
   id: string;
