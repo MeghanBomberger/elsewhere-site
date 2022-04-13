@@ -19,6 +19,7 @@ citiesRouter.get("/", async (req, res, next) => {
   await base("cities").select({
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
+    console.log("cites")
     //@ts-ignore
     const cities: CitiesAPIResponse[] = await records.map((record: CitiesAirtableResponse) => {
       const {
@@ -50,7 +51,7 @@ citiesRouter.get("/", async (req, res, next) => {
         name: city_name,
         description,
         images: imageData,
-        cityCoords: `${teleport_x_coords}, ${teleport_y_coords}, ${teleport_z_coords}`,
+        coords: `${teleport_x_coords}, ${teleport_y_coords}, ${teleport_z_coords}`,
         zoneType: zone_type,
         shops: {
           availableShopSpaces: availableShops,
@@ -58,6 +59,7 @@ citiesRouter.get("/", async (req, res, next) => {
         },
       }
     })
+    res.send(cities)
   }).catch((err) => {
     if (err) {
       console.error(err)
