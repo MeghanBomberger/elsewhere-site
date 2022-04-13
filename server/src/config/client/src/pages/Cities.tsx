@@ -44,7 +44,6 @@ export const Cities = () => {
   const fetchCitiesData = async () => {
     await axios.get(`${baseURL}/api/cities`)
     .then(res => {
-      console.log(res.data)
       if (res.data) {
         const cities = res.data
         setCities(cities)

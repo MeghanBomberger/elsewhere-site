@@ -19,7 +19,6 @@ citiesRouter.get("/", async (req, res, next) => {
   await base("cities").select({
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
-    console.log("cites")
     //@ts-ignore
     const cities: CitiesAPIResponse[] = await records.map((record: CitiesAirtableResponse) => {
       const {
