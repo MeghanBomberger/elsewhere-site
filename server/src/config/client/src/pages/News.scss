@@ -1,0 +1,56 @@
+@import '../helpers/styles/index.scss';
+@import '../helpers/styles/colors.scss';
+
+.news {
+  .main {
+    @include scroll-bar;
+    overflow: auto;
+
+    .news-card {
+      @include center-v;
+      .article-title {
+        margin-bottom: 2rem;
+      }
+
+      .article-date {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .news-carousel {
+        width: 70vw;
+        margin-bottom: 2rem;
+
+        .css-1m9128y {
+          button {
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+          }
+        }
+
+        .MuiButtonBase-root {
+          background-color: $secondaryBackground;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      
+      .article-contents {
+        width: 80%;
+        margin-bottom: 8rem;
+      }
+
+      .article-tags {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        background-color: $secondaryBackground;
+        color: $secondaryText;
+        margin-bottom: 8rem;
+      }
+    }
+  }
+}
