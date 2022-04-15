@@ -33,6 +33,7 @@ export interface ModsAPIResponse {
 
 export interface NewsAPIResponse {
   id: string;
+  title: string;
   contents: string;
   category: string;
   images: string[];
