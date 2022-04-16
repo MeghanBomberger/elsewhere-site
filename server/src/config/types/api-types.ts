@@ -18,6 +18,7 @@ export interface CitiesAPIResponse {
   shops: CityShops;
 }
 
+
 export interface ModsAPIResponse {
   description?: string;
   id: string;
