@@ -9,34 +9,21 @@
       align-items: flex-start;
 
       .form-inputs {
+        margin-bottom: 8rem;
         width: 100%;
         font-size: 1.2rem;
-        border: none;
-        margin-bottom: 8rem;
 
-        input[type=text], input[type=email] {
-        background-color: $background;
-        color: $secondaryText;
-        border: solid 0.2rem $secondaryText;
-        border-radius: 0.5rem;
-      }
-
-        input {
+        .input-fields {
+          margin-top: 0.5rem;
+          border: solid 0.2rem $secondaryText;
+          border-radius: 0.5rem; 
           width: 100%;
           height: 100%;
           padding-left: 0.5rem;
-          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          background-color: $background;
         }
         
-        textarea {
-          width: 100%;
-          padding-left: 0.5rem;
-          padding-top: 0.5rem;
-          margin-top: 0.5rem;
-          background-color: $background;
-          border: solid 0.2rem $secondaryText;
-          border-radius: 0.5rem;
-        }
       }
 
       .form-inputs:last-of-type {
@@ -44,17 +31,18 @@
       }
 
       .button-container {
-        width: 100%;
         @include center-h;
+        width: 100%;
 
         button {
+          border-radius: 5rem;
+          border: solid 0.2rem $gearBorder;
           width: 16rem;
           background-color: $gearBackground;
-          border-radius: 5rem;
+          font-size: 2rem;
           text-align: center;
-          color: $background;
           text-transform: uppercase;
-          border: solid 0.2rem $gearBorder;
+          color: $background;
           &:hover {
             filter: drop-shadow($itemBoxHighlight40 0 0 1rem);
           }
