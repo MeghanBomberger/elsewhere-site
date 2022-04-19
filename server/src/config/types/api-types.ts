@@ -18,6 +18,14 @@ export interface CitiesAPIResponse {
   shops: CityShops;
 }
 
+export interface ContactUsPostBody {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  status: 'NEW!'
+}
+
 export interface ModsAPIResponse {
   description?: string;
   id: string;
@@ -33,6 +41,7 @@ export interface ModsAPIResponse {
 
 export interface NewsAPIResponse {
   id: string;
+  title: string;
   contents: string;
   category: string;
   images: string[];

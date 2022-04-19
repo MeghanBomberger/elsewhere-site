@@ -23,6 +23,7 @@ newsRouter.get('/', async (req, res, next) => {
       const {
         title,
         contents,
+        category,
         images,
         publish_date
       } = record.fields
@@ -33,6 +34,7 @@ newsRouter.get('/', async (req, res, next) => {
         id: record.id,
         title,
         contents,
+        category,
         images: imageData,
         publish_date
       }
