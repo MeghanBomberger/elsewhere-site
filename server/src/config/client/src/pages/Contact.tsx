@@ -85,7 +85,7 @@ export const Contact = () => {
               className='inputs'
             />
           </label>
-          <label className='form-inputs'>
+          <label className='form-inputs last-input'>
             Message:
             <textarea
               name='message'
@@ -97,11 +97,11 @@ export const Contact = () => {
               rows={10}
             />
           </label>
-          <button
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
+          <div className='button-container'>
+            <button onClick={handleSubmit}>
+              Send Message
+            </button>
+          </div>
         </form>
       </main>
     </div>
