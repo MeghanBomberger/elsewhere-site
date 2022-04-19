@@ -32,16 +32,6 @@ export interface CitiesAirtableResponse {
   }
 }
 
-export interface ContactAirtableResponse {
-  id: string;
-  fields: {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-  }
-}
-
 export interface ModsAirtableResponse {
   id: string;
   fields: {

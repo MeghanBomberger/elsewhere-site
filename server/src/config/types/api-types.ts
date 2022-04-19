@@ -18,6 +18,13 @@ export interface CitiesAPIResponse {
   shops: CityShops;
 }
 
+export interface ContactUsPostBody {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  status: 'NEW!'
+}
 
 export interface ModsAPIResponse {
   description?: string;
