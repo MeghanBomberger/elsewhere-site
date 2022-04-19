@@ -60,7 +60,7 @@ export const Contact = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder='Enter your name here.'
-              className='inputs'
+              className='input-fields'
               />
           </label>
           <label className='form-inputs'>
@@ -71,7 +71,7 @@ export const Contact = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Enter your email here.'
-              className='inputs'
+              className='input-fields'
             />
           </label>
           <label className='form-inputs'>
@@ -82,26 +82,26 @@ export const Contact = () => {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               placeholder='Subject'
-              className='inputs'
+              className='input-fields'
             />
           </label>
-          <label className='form-inputs'>
+          <label className='form-inputs last-input'>
             Message:
             <textarea
               name='message'
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder='Message goes here.'
-              className='inputs'
+              className='input-fields'
               wrap='hard'
               rows={10}
             />
           </label>
-          <button
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
+          <div className='button-container'>
+            <button onClick={handleSubmit}>
+              Send Message
+            </button>
+          </div>
         </form>
       </main>
     </div>
