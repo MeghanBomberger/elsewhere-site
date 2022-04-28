@@ -4,26 +4,25 @@ import { RoleAPIResponse } from '../../../types/api-types'
 import './RoleCard.scss'
 
 export const RoleCard = (props: RoleAPIResponse) => {
-  console.log(props)
-
+  const {id, title, venue, price, perks, image} = props
   return (
     <div>
       <article
-        key={props.id}
+        key={id}
         className="role-card"
       >
-        <h3 className="role-title">{props.title}</h3>
+        <h3 className="role-title">{title}</h3>
         <img
           className="role-img"
-          alt={`${props.venue} Role: ${props.title}`}
-          title={`${props.venue} Role: ${props.title}`}
-          src={props.image}
+          alt={`${venue} Role: ${title}`}
+          title={`${venue} Role: ${title}`}
+          src={image}
         />
-        {props?.price && <p className="role-price">${props.price}</p>}
+        {props?.price && <p className="role-price">${price}</p>}
         <ul className="role-perks-list">
-          {props.perks.map(perk => (
+          {perks.map(perk => (
             <li
-              key={`${props.title}-${perk}-perk`}
+              key={`${title}-${perk}-perk`}
             >
               {perk}
             </li>
