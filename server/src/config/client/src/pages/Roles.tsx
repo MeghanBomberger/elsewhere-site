@@ -8,37 +8,12 @@ import { RoleAPIResponse } from '../../../types/api-types'
 import './Roles.scss'
 import { Header } from '../components'
 import { baseURL } from '../helpers/axios-helpers'
+import { RoleCard } from '../components/RoleCard'
 
 export const Roles = () => {
   const [patreonRoles, setPatreonRoles] = useState<RoleAPIResponse[]>([])
   const [discordRoles, setDiscordRoles] = useState<RoleAPIResponse[]>([])
 
-  const createRoleCard = (rolesList: RoleAPIResponse[]) => {
-    return rolesList.map(role => (
-      <article
-        key={role.id}
-        className="role-card"
-      >
-        <h3 className="role-title">{role.title}</h3>
-        <img
-          className="role-img"
-          alt={`${role.venue} Role: ${role.title}`}
-          title={`${role.venue} Role: ${role.title}`}
-          src={role.image}
-        />
-        {role?.price && <p className="role-price">${role.price}</p>}
-        <ul className="role-perks-list">
-          {role.perks.map(perk => (
-            <li
-              key={`${role.title}-${perk}-perk`}
-            >
-              {perk}
-            </li>
-          ))}
-        </ul>
-      </article>
-    ))
-  }
   
   const fetchRolesData = async () => {
     await axios.get(`${baseURL}/api/roles`)
@@ -62,9 +37,13 @@ export const Roles = () => {
       <Header/>
       <main className="main roles-main">
         <h2>Patreon Tiers</h2>
-        {createRoleCard(patreonRoles)}
+        {patreonRoles?.map(role => (
+          <RoleCard {...role} />
+        ))}
         <h2>Discord Boosting Perks</h2>
-        {createRoleCard(discordRoles)}
+        {discordRoles?.map(role => (
+          <RoleCard {...role} />
+        ))}
       </main>
     </div>
   )
