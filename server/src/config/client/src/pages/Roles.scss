@@ -14,42 +14,5 @@
       }
     }
   
-    .role-card {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-template-rows: auto 4rem auto;
-      margin-bottom: 6rem;
-      max-width: 60rem;
-  
-      .role-title {
-        margin-bottom: 2rem;
-        grid-column: 1/3;
-        grid-row: 1;
-      }
-      
-      .role-img {
-        grid-column: 1;
-        grid-row: 2/4;
-        height: 25rem;
-        width: 25rem;
-      }
-  
-      .role-price {
-        grid-column: 2;
-        grid-row: 2;
-        text-align: center;
-        font-size: 3rem;
-        @include secondary-font;
-      }
-  
-      .role-perks-list {
-        grid-column: 2;
-        grid-row: 3;
-        padding: 1rem 4rem;
-        li {
-          margin-bottom: 0.5rem;
-        }
-      }
-    }
   }
 }
