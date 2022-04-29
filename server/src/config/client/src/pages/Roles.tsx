@@ -1,4 +1,5 @@
 import React, { 
+  useCallback,
   useEffect,
   useState, 
 } from 'react'
@@ -14,7 +15,8 @@ export const Roles = () => {
   const [patreonRoles, setPatreonRoles] = useState<RoleAPIResponse[]>([])
   const [discordRoles, setDiscordRoles] = useState<RoleAPIResponse[]>([])
 
-  
+  const createCards = (roleType: RoleAPIResponse[]) => roleType?.map(role => <RoleCard {...role} />)
+
   const fetchRolesData = async () => {
     await axios.get(`${baseURL}/api/roles`)
       .then((res) => {
@@ -37,13 +39,9 @@ export const Roles = () => {
       <Header/>
       <main className="main roles-main">
         <h2>Patreon Tiers</h2>
-        {patreonRoles?.map(role => (
-          <RoleCard {...role} />
-        ))}
+        {createCards(patreonRoles)}
         <h2>Discord Boosting Perks</h2>
-        {discordRoles?.map(role => (
-          <RoleCard {...role} />
-        ))}
+        {createCards(discordRoles)}
       </main>
     </div>
   )
