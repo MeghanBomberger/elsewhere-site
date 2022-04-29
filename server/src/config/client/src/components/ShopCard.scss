@@ -1,0 +1,44 @@
+@import '../helpers/styles/';
+
+$carouselMaxWidth: 150vh;
+
+.shop-card {
+  @include center-v;
+  .shop-name {
+    margin-bottom: 2rem;
+  }
+
+  .shop-carousel {
+    width: 70vw;
+    max-height: $carouselMaxWidth;
+    max-width: calc($carouselMaxWidth*0.52);
+    margin-bottom: 2rem;
+
+    .css-1m9128y {
+      button {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .MuiButtonBase-root {
+      background-color: $secondaryBackground;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .shop-location {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .shop-desc {
+    width: 80%;
+    margin-bottom: 8rem;
+  }
+}
