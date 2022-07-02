@@ -12,7 +12,6 @@ import newsRouter from './routes/NewsRouter'
 import shopsRouter from './routes/ShopsRouter'
 import contactRouter from './routes/ContactRouter'
 
-
 const app = express()
 
 const options: cors.CorsOptions = {
