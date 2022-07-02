@@ -4,12 +4,12 @@ import React, {
 } from 'react'
 import axios from 'axios'
 import format from 'date-fns/format'
-import Carousel from 'react-material-ui-carousel'
 
 import { NewsAPIResponse } from '../../../types/api-types'
 import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './News.scss'
+import { ImageCarousel } from '../components/ImageCarousel'
 
 export const News = () => {
   const [newsData, setNewsData] = useState<NewsAPIResponse[]>([])
@@ -22,21 +22,13 @@ export const News = () => {
       >
         <h3 className='news-title'>{article.title}</h3>
         <time className='article-date'>{format(new Date(article.publish_date), 'MMMM dd yyyy')}</time>
-        <Carousel
-          autoPlay
-          navButtonsAlwaysVisible
-          animation='fade'
-          className='news-carousel'
-        >
-          {article.images.map((image, i) => (
-            <img
-              key={`${article.title}-image-${i}`}
-              alt={`${article.title}-${i}`}
-              title={`${article.title}-${i}`}
-              src={image}
-            />
-          ))}
-        </Carousel>
+        <ImageCarousel
+          images={article.images?.map((image, i) => ({
+            url: image,
+            title: `${article.title}-${i}`,
+            id: `${article.id}-img${i}`
+          })) || []}
+        />
         <p className='article-contents'>{article.contents}</p>
         <p className='article-tags'>{article.category}</p>
       </article>

@@ -3,12 +3,12 @@ import React, {
   useEffect,
 } from 'react'
 import axios from 'axios'
-import Carousel from 'react-material-ui-carousel'
 
 import { CitiesAPIResponse } from '../../../types/api-types'
 import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './Cities.scss'
+import { ImageCarousel } from '../components/ImageCarousel'
 
 export const Cities = () => {
   const [citiesData, setCities] = useState<CitiesAPIResponse[]>([])
@@ -20,21 +20,13 @@ export const Cities = () => {
         className='city-card'
       >
         <h3 className='city-name'>{city.name}</h3>
-        <Carousel
-          autoPlay
-          navButtonsAlwaysVisible
-          animation='fade'
-          className='city-carousel'
-        >
-          {city.images.map((image, i) => (
-            <img
-              key={`${city.name}-image-${i}`}
-              alt={`${city.name}-${i}`}
-              title={`${city.name}-${i}`}
-              src={image}
-            />
-          ))}
-        </Carousel>
+        <ImageCarousel
+          images={city.images?.map((image, i) => ({
+            url: image,
+            title: `${city.name}-${i}`,
+            id: `${city.id}-img${i}`
+          })) || []}
+        />
         <p className='city-location'>{city.coords}</p>
         <p className='city-desc'>{city.description}</p>
       </article>

@@ -9,6 +9,7 @@ import { ShopAPIResponse } from '../../../types/api-types'
 import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './Shops.scss'
+import { ShopCard } from '../components/ShopCard'
 
 export const Shops = () => {
   const [openShops, setOpenShops] = useState<ShopAPIResponse[]>([])
@@ -16,29 +17,15 @@ export const Shops = () => {
 
   const createShopCards = (shopsList: ShopAPIResponse[]) => {
     return shopsList.map(shop => (
-      <article
-        key={shop.id}
-        className="shop-card"
-      >
-        <h3 className="shop-name">{shop.shopName}</h3>
-        <Carousel
-          autoPlay
-          navButtonsAlwaysVisible
-          animation='fade'
-          className="shop-carousel"
-        >
-          {shop.images.map((image, i) => (
-            <img
-              key={`${shop.shopName}-image-${i}`}
-              alt={`${shop.shopName}-${i}`}
-              title={`${shop.shopName}-${i}`}
-              src={image}
-            />
-          ))}
-        </Carousel>
-        <p className="shop-location">{shop.city}  ({shop.shopCoords})</p>
-        <p className="shop-desc">{shop.description}</p>
-      </article>
+      <ShopCard
+        id={shop.id}
+        city={shop.city}
+        description={shop.description}
+        images={shop.images}
+        shopName={shop.shopName}
+        shopCoords={shop.shopCoords}
+        status={shop.status}
+      />
     ))
   }
 
