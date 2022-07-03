@@ -18,13 +18,7 @@ export const Shops = () => {
   const createShopCards = (shopsList: ShopAPIResponse[]) => {
     return shopsList.map(shop => (
       <ShopCard
-        id={shop.id}
-        city={shop.city}
-        description={shop.description}
-        images={shop.images}
-        shopName={shop.shopName}
-        shopCoords={shop.shopCoords}
-        status={shop.status}
+        {...shop}
       />
     ))
   }

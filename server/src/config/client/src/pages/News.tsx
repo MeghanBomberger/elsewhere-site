@@ -10,6 +10,8 @@ import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './News.scss'
 import { ImageCarousel } from '../components/ImageCarousel'
+import { imageCarouselFormatter } from '../helpers/images-helper'
+import ReactMarkdown from 'react-markdown'
 
 export const News = () => {
   const [newsData, setNewsData] = useState<NewsAPIResponse[]>([])
@@ -23,13 +25,9 @@ export const News = () => {
         <h3 className='news-title'>{article.title}</h3>
         <time className='article-date'>{format(new Date(article.publish_date), 'MMMM dd yyyy')}</time>
         <ImageCarousel
-          images={article.images?.map((image, i) => ({
-            url: image,
-            title: `${article.title}-${i}`,
-            id: `${article.id}-img${i}`
-          })) || []}
+          images={imageCarouselFormatter(article.images, article.title, article.id)}
         />
-        <p className='article-contents'>{article.contents}</p>
+        <ReactMarkdown className="article-contents">{article.contents}</ReactMarkdown>
         <p className='article-tags'>{article.category}</p>
       </article>
     ))

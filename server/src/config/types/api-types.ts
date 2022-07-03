@@ -66,6 +66,7 @@ export interface ShopAPIResponse {
   shopName: string;
   shopCoords: string;
   status: string;
+  owner: string;
 }
 
 export interface RulesAPIResponse {

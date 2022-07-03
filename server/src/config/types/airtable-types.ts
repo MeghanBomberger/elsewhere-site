@@ -82,6 +82,7 @@ export interface ShopsAirtableResponse {
     shop_y_coord: string;
     shop_z_coord: string;
     status: string;
+    owner: string;
   }
 }
 

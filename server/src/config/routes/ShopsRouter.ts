@@ -25,6 +25,7 @@ shopsRouter.get('/', async (req, res, next) => {
         shop_y_coord,
         shop_z_coord,
         status,
+        owner,
       } = record.fields
       
       const imageData: string[] = getImageUrls(images)
@@ -36,7 +37,8 @@ shopsRouter.get('/', async (req, res, next) => {
         images: imageData,
         shopName: shop_name,
         shopCoords: `${shop_x_coord}, ${shop_y_coord}, ${shop_z_coord}`,
-        status
+        status,
+        owner: owner || ''
       }
     })
     res.send(shops)

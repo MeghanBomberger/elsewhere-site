@@ -17,36 +17,21 @@
         margin-top: 0.5rem;
         margin-bottom: 2rem;
       }
-
-      .news-carousel {
-        width: 70vw;
-        margin-bottom: 2rem;
-
-        .css-1m9128y {
-          button {
-            margin-right: 0.5rem;
-            margin-left: 0.5rem;
-          }
-        }
-
-        .MuiButtonBase-root {
-          background-color: $secondaryBackground;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
       
       .article-contents {
-        width: 80%;
-        margin-bottom: 8rem;
+        max-width: 70vw;
+        margin-bottom: 2rem;
+
+        p {
+          text-align: justify;
+          margin-bottom: 1rem;
+        }
       }
 
       .article-tags {
-        padding: 1rem 2rem;
-        border-radius: 50px;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5rem;
         background-color: $secondaryBackground;
         color: $secondaryText;
         margin-bottom: 8rem;

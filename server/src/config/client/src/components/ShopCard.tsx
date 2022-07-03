@@ -6,7 +6,9 @@ import { ImageCarousel } from './ImageCarousel'
 import { imageCarouselFormatter } from '../helpers/images-helper'
 
 export const ShopCard = (props: ShopAPIResponse) => {
-  const { id, shopName, images, city, shopCoords, description } = props
+  const { id, shopName, images, city, shopCoords, description, owner } = props
+
+  console.log(shopCoords)
 
   return (
     <article
@@ -17,7 +19,8 @@ export const ShopCard = (props: ShopAPIResponse) => {
       <ImageCarousel
         images={imageCarouselFormatter(images, shopName, id)}
       />
-      <p className="shop-location">{city}  ({shopCoords})</p>
+      <p className="shop-location">
+        {city}{shopCoords !== 'undefined, undefined, undefined' && `  (${shopCoords})`}  {owner && ` - Owned By: ${owner}`}</p>
       <p className="shop-desc">{description}</p>
     </article>
   )
