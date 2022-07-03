@@ -33,7 +33,7 @@ citiesRouter.get("/", async (req, res, next) => {
         open_shop_names,
         shop_statuses,
       } = record.fields
-
+      
       const imageData: string[] = getImageUrls(screenshots)
 
       const shopsData: CityShop[] = open_shop_names.map((shop: string, index: number) => {
@@ -50,7 +50,7 @@ citiesRouter.get("/", async (req, res, next) => {
         name: city_name,
         description,
         images: imageData,
-        coords: `${teleport_x_coords}, ${teleport_y_coords}, ${teleport_z_coords}`,
+        coords: `${teleport_x_coords || '?'}, ${teleport_y_coords || '?'}, ${teleport_z_coords || '?'}`,
         zoneType: zone_type,
         shops: {
           availableShopSpaces: availableShops,
