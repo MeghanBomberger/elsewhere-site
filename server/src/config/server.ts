@@ -11,6 +11,7 @@ import rolesRouter from './routes/RolesRouter'
 import newsRouter from './routes/NewsRouter'
 import shopsRouter from './routes/ShopsRouter'
 import contactRouter from './routes/ContactRouter'
+import rulesRouter from './routes/RulesRouter'
 
 const app = express()
 
@@ -46,6 +47,7 @@ app.use('/api/shops', shopsRouter)
 app.use('/api/cities', citiesRouter)
 app.use('/api/news', newsRouter)
 app.use('/api/contactus', contactRouter)
+app.use('/api/rules', rulesRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')))

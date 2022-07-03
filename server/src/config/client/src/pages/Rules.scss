@@ -1,0 +1,8 @@
+@import '../helpers/styles/';
+
+.rules {
+  .rules-main {
+    overflow: auto;
+    @include scroll-bar;
+  }
+}

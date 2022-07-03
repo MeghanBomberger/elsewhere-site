@@ -9,28 +9,35 @@ import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './Cities.scss'
 import { ImageCarousel } from '../components/ImageCarousel'
+import { imageCarouselFormatter } from '../helpers/images-helper'
 
 export const Cities = () => {
   const [citiesData, setCities] = useState<CitiesAPIResponse[]>([])
 
   const createCityCards = (citiesList: CitiesAPIResponse[]) => {
-    return citiesList.map(city => (
-      <article
-        key={city.id}
-        className='city-card'
-      >
-        <h3 className='city-name'>{city.name}</h3>
-        <ImageCarousel
-          images={city.images?.map((image, i) => ({
-            url: image,
-            title: `${city.name}-${i}`,
-            id: `${city.id}-img${i}`
-          })) || []}
-        />
-        <p className='city-location'>{city.coords}</p>
-        <p className='city-desc'>{city.description}</p>
-      </article>
-    ))
+    return citiesList.map(city => {
+      const {
+        id,
+        name,
+        images,
+        coords,
+        description
+      } = city
+
+      return (
+        <article
+          key={id}
+          className='city-card'
+        >
+          <h3 className='city-name'>{name}</h3>
+          <ImageCarousel
+            images={imageCarouselFormatter(images, name, id)}
+          />
+          <p className='city-location'>{coords}</p>
+          <p className='city-desc'>{description}</p>
+        </article>
+      )
+    })
   }
 
   const fetchCitiesData = async () => {

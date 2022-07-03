@@ -3,7 +3,9 @@
 
 .contact {
   .main {
-
+    overflow: auto;
+    @include scroll-bar;
+    
     form {
       @include center-v;
       align-items: flex-start;

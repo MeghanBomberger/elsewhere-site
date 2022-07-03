@@ -30,20 +30,19 @@ citiesRouter.get("/", async (req, res, next) => {
         teleport_z_coords,
         zone_type,
         shops,
-        open_shop_names,
         shop_statuses,
       } = record.fields
       
       const imageData: string[] = getImageUrls(screenshots)
 
-      const shopsData: CityShop[] = open_shop_names.map((shop: string, index: number) => {
+      const shopsData: CityShop[] = record.fields?.open_shop_names?.map((shop: string, index: number) => {
         return {
           id: shops[index],
           name: shop
         }
-      })
+      }) || []
 
-      const availableShops = shop_statuses?.filter(status => status === 'Available').length
+      const availableShops = shop_statuses?.filter(status => status === 'Available').length || 0
 
       return {
         id: record.id,

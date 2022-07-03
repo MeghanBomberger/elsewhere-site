@@ -1,0 +1,40 @@
+@import '../helpers/styles/';
+
+.rules-section {
+  padding: 1rem 3rem;
+  
+  .section-header {
+    @include center-h;
+    justify-content: space-between;
+    min-width: 70vw;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    background-color: $secondaryBackgroundFade25;
+    border-radius: 2rem;
+    
+    h3 {
+      font-size: 2.1rem;
+    }
+
+    .section-toggle-button {
+      @include blank-button;
+
+      .arrow-icon {
+        height: 2rem;
+      }
+    }
+
+    .open-section {
+      transform: rotate(270deg);
+    }
+
+    .closed-section {
+      transform: rotate(90deg);
+    } 
+  }
+
+  .rules-list {
+    @include center-v;
+    min-width: 70vw;
+  }
+}

@@ -67,3 +67,11 @@ export interface ShopAPIResponse {
   shopCoords: string;
   status: string;
 }
+
+export interface RulesAPIResponse {
+  id: string;
+  subject: string;
+  contents: string;
+  images: string[];
+  category: string;
+}

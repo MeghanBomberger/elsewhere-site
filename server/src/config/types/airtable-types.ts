@@ -85,3 +85,12 @@ export interface ShopsAirtableResponse {
   }
 }
 
+export interface RulesAirtableResponse {
+  id: string;
+  fields: {
+    subject: string;
+    contents: string;
+    images: AirtableImage[];
+    category: string;
+  }
+}
