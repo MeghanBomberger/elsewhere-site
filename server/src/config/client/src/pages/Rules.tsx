@@ -23,7 +23,7 @@ export const Rules = () => {
   const rulesCategories = useCallback(async () => {
     const categoriesList: string[] = []
     await rules.forEach((rule, i) => {
-      if (i === 0 || categoriesList.includes(rule.category) === false) {
+      if ((i === 0 || categoriesList.includes(rule.category) === false) && rule?.category) {
         categoriesList.push(rule.category)
       }
     })
