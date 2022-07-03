@@ -12,7 +12,7 @@ export const Rules = () => {
   const [categories, setCategories] = useState<string[]>([])
 
   const fetchRulesData = async () => {
-    await axios.get(`${baseURL}/api/rules`)
+    await axios.get(`/api/rules`)
       .then((res) => {
         if (res.data?.length > 0) {
           setRules(res.data) 

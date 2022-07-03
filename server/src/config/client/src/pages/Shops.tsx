@@ -24,7 +24,7 @@ export const Shops = () => {
   }
 
   const fetchShopsData = async () => {
-    await axios.get(`${baseURL}/api/shops`)
+    await axios.get(`/api/shops`)
       .then(res => {
         if (res.data) {
           const shops = res.data

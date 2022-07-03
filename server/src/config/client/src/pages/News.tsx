@@ -34,7 +34,7 @@ export const News = () => {
   }
 
   const fetchNewsData = async () => {
-    await axios.get(`${baseURL}/api/news`)
+    await axios.get(`/api/news`)
     .then(res => {
       if (res.data) {
         const news = res.data

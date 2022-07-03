@@ -10,7 +10,7 @@ export const Mods = () => {
   const [mods, setMods] = useState<ModsAPIResponse[]>([])
   
   const fetchModsData = async () => {
-    await axios.get(`${baseURL}/api/mods`)
+    await axios.get(`/api/mods`)
     .then(res => {
       if (res.data) {
         const mods = res.data

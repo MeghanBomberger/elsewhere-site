@@ -1,4 +1,3 @@
-import { stringify } from 'querystring'
 import React, {
   useState
 } from 'react'
@@ -21,7 +20,7 @@ export const Contact = () => {
   const [message, setMessage] = useState<string>('')
 
   const sendMessage = async (newMessage: {}) => {
-    await axios.post(`${baseURL}/api/contactus`, newMessage)
+    await axios.post(`/api/contactus`, newMessage)
     .then(res => {
       clearInputs()
     })

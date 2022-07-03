@@ -18,7 +18,7 @@ export const Roles = () => {
   const createCards = (roleType: RoleAPIResponse[]) => roleType?.map(role => <RoleCard {...role} />)
 
   const fetchRolesData = async () => {
-    await axios.get(`${baseURL}/api/roles`)
+    await axios.get(`/api/roles`)
       .then((res) => {
         if (res.data?.length > 0) {
           const roles = res.data
