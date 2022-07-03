@@ -5,7 +5,6 @@
   padding: 2rem;
   width: 80%;
   min-width: 70vw;
-  margin-bottom: 2rem;
 
   .rule-header {
     @include center-h;
@@ -44,6 +43,8 @@
   
 
   .content-text {
+    margin-bottom: 2rem;
+    
     p {
       margin-bottom: 1rem;
       font-size: 1.4rem;
