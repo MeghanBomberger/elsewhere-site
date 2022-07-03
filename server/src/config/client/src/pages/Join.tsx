@@ -57,7 +57,7 @@ export const Join = () => {
           title="Server Setup"
           src={setupShot}
         />
-        <p>Head to the Multiplayer section of your game. In the bottom right corner click the "New Server". The server name is "Elsewhere" and the host is "elsewhere.g.akliz.net:49438".</p>
+        <p>Head to the Multiplayer section of your game. In the bottom right corner click the "New Server". The server name is "Elsewhere" and the host is "15.204.170.249:57838".</p>
 
         <p>If you are still set to vistor when you log in, please ping one of the Admins on Discord to get this corrected for you.</p>
 
