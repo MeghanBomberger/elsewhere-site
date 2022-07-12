@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 
 import './App.scss'
+import { SupporterMarquee } from './components/SupporterMarquee'
 import {
   Cities,
   Contact,
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/rules" element={<Rules/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
+      <SupporterMarquee/>
     </div>
   )
 }
