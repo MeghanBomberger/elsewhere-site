@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../SupporterCard.scss'
+import './SupporterCard.scss'
 import { SupporterAPIResponse } from '../../../types/api-types'
 
 interface SupporterCardProps {
