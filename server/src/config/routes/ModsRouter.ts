@@ -17,7 +17,7 @@ modsRouter.get("/syncvsmoddb", async (req, res, next) => {
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
     //@ts-ignore
-    const mods = await records.map(record => ({ id: record.id, fields: {...record.fields} }))
+    const mods = await records?.map(record => ({ id: record.id, fields: {...record.fields} })) || []
 
     await mods.forEach(async (mod: ModsAirtableResponse, index) => {
       let shouldUpdate = false
@@ -112,7 +112,7 @@ modsRouter.get("/", async (req, res, next) => {
   await base('mods').select({
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
-    const mods: ModsAPIResponse[] = await records.map((record: ModsAirtableResponse) => {
+    const mods: ModsAPIResponse[] = await records?.map((record: ModsAirtableResponse) => {
       const {
         description,
         mod_db_id,
@@ -136,7 +136,8 @@ modsRouter.get("/", async (req, res, next) => {
         status,
         versionNumberInUse: version_number_in_use
       }
-    })
+    }) || []
+    
     res.send(mods)
   }).catch((err) => {
     if (err) {

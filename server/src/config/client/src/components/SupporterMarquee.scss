@@ -1,0 +1,10 @@
+@import '../helpers/styles/';
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  @include center-h;
+  height: 2.5rem;
+}

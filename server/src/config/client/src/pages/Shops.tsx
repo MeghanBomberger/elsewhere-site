@@ -3,10 +3,8 @@ import React, {
   useEffect,
 } from 'react'
 import axios from 'axios'
-import Carousel from 'react-material-ui-carousel'
 
 import { ShopAPIResponse } from '../../../types/api-types'
-import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './Shops.scss'
 import { ShopCard } from '../components/ShopCard'

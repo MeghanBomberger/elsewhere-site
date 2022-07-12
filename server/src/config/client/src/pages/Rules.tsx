@@ -4,7 +4,6 @@ import axios from 'axios'
 import { Header } from '../components'
 import './Rules.scss'
 import { RulesAPIResponse } from '../../../types/api-types'
-import { baseURL } from '../helpers/axios-helpers'
 import { RulesSection } from '../components/RulesSection'
 
 export const Rules = () => {

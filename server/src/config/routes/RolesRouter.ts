@@ -19,7 +19,7 @@ rolesRouter.get("/", async (req, res, next) => {
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
     //@ts-ignore
-    const roles = await records.map((record: RoleAirtableResponse) => {
+    const roles = await records?.map((record: RoleAirtableResponse) => {
       const {
         image,
         available,
@@ -41,7 +41,8 @@ rolesRouter.get("/", async (req, res, next) => {
       }
 
       return roleData
-    })
+    }) || []
+    
     res.send(roles)
   }).catch((err) => {
     if (err) {

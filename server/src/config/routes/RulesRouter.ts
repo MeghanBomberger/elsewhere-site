@@ -17,7 +17,7 @@ rulesRouter.get('/', async (req, res, next) => {
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
       //@ts-ignore
-      const rules: RulesAPIResponse[] = await records.map((record: RulesAirtableResponse) => {
+      const rules: RulesAPIResponse[] = await records?.map((record: RulesAirtableResponse) => {
       const {
         subject,
         contents,
@@ -34,7 +34,7 @@ rulesRouter.get('/', async (req, res, next) => {
         images: imageData,
         category
       }
-    })
+    }) || []
 
     res.send(rules)
   }).catch((err) => {

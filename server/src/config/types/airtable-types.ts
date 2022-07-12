@@ -95,3 +95,13 @@ export interface RulesAirtableResponse {
     category: string;
   }
 }
+
+export interface SupporterAirtableResponse {
+  id: string;
+  fields: {
+    username: string;
+    role: string[],
+    role_title: string[],
+    role_image: AirtableImage[]
+  }
+}

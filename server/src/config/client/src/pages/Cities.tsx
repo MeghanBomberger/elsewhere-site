@@ -5,7 +5,6 @@ import React, {
 import axios from 'axios'
 
 import { CitiesAPIResponse } from '../../../types/api-types'
-import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './Cities.scss'
 import { ImageCarousel } from '../components/ImageCarousel'

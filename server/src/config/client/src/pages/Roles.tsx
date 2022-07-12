@@ -1,5 +1,4 @@
 import React, { 
-  useCallback,
   useEffect,
   useState, 
 } from 'react'
@@ -8,7 +7,6 @@ import axios from 'axios'
 import { RoleAPIResponse } from '../../../types/api-types'
 import './Roles.scss'
 import { Header } from '../components'
-import { baseURL } from '../helpers/axios-helpers'
 import { RoleCard } from '../components/RoleCard'
 
 export const Roles = () => {

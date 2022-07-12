@@ -20,7 +20,7 @@ citiesRouter.get("/", async (req, res, next) => {
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
     //@ts-ignore
-    const cities: CitiesAPIResponse[] = await records.map((record: CitiesAirtableResponse) => {
+    const cities: CitiesAPIResponse[] = await records?.map((record: CitiesAirtableResponse) => {
       const {
         city_name,
         description,
@@ -56,7 +56,8 @@ citiesRouter.get("/", async (req, res, next) => {
           openShops: shopsData
         },
       }
-    })
+    }) || []
+    
     res.send(cities)
   }).catch((err) => {
     if (err) {

@@ -19,7 +19,7 @@ newsRouter.get('/', async (req, res, next) => {
     view: 'Grid view'
   }).eachPage(async function page(records, fetchNextPage) {
     //@ts-ignore
-    const news: NewsAPIResponse[] = await records.map((record: NewsAirtableResponse) => {
+    const news: NewsAPIResponse[] = await records?.map((record: NewsAirtableResponse) => {
       const {
         title,
         contents,
@@ -38,7 +38,8 @@ newsRouter.get('/', async (req, res, next) => {
         images: imageData,
         publish_date
       }
-    })
+    }) || []
+    
     res.send(news)
   }).catch((err) => {
     if (err) {

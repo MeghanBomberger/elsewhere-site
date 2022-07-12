@@ -15,7 +15,7 @@ shopsRouter.get('/', async (req, res, next) => {
     view: "Grid view"
   }).eachPage(async function page(records, fetchNextPage) {
     //@ts-ignore
-    const shops: ShopAPIResponse[] = await records.map((record: ShopsAirtableResponse) => {
+    const shops: ShopAPIResponse[] = await records?.map((record: ShopsAirtableResponse) => {
       const {
         city_name,
         description,
@@ -40,7 +40,8 @@ shopsRouter.get('/', async (req, res, next) => {
         status,
         owner: owner || ''
       }
-    })
+    }) || []
+    
     res.send(shops)
   }).catch((err) => {
     if (err) {

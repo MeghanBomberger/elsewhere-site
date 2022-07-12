@@ -4,14 +4,13 @@ import React, {
 } from 'react'
 import axios from 'axios'
 import format from 'date-fns/format'
+import ReactMarkdown from 'react-markdown'
 
 import { NewsAPIResponse } from '../../../types/api-types'
-import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './News.scss'
 import { ImageCarousel } from '../components/ImageCarousel'
 import { imageCarouselFormatter } from '../helpers/images-helper'
-import ReactMarkdown from 'react-markdown'
 
 export const News = () => {
   const [newsData, setNewsData] = useState<NewsAPIResponse[]>([])

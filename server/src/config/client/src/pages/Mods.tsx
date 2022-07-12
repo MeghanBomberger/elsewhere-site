@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import { ModsAPIResponse } from '../../../types/api-types'
-import { baseURL } from '../helpers/axios-helpers'
 import { Header } from '../components'
 import './Mods.scss'
 

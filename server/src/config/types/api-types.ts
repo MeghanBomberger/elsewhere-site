@@ -1,3 +1,5 @@
+import Airtable from "airtable";
+
 export interface CityShop {
   id: string;
   name: string;
@@ -75,4 +77,16 @@ export interface RulesAPIResponse {
   contents: string;
   images: string[];
   category: string;
+}
+
+interface RoleSummary {
+  id: string;
+  title: string;
+  image: string;
+}
+
+export interface SupporterAPIResponse {
+  id: string;
+  username: string;
+  roles: RoleSummary[];
 }
